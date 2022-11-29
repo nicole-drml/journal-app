@@ -1,6 +1,6 @@
 require "test_helper"
 
-class CategoryControllerTest < ActionDispatch::IntegrationTest
+class CategoriesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
@@ -21,7 +21,7 @@ class CategoryControllerTest < ActionDispatch::IntegrationTest
 
   test "should get create" do
     assert_difference("Category.count") do
-      post category_url, params: { category: { name: @category.name } }
+      post create_category_url, params: { category: { name: @category.name } }
     end
 
     assert_redirected_to category_url(Category.last)
@@ -29,7 +29,7 @@ class CategoryControllerTest < ActionDispatch::IntegrationTest
 
   test "should get show" do
     get category_url(@category)
-    assert_response 
+    assert_response :success
   end
 
   test "should get edit" do
@@ -38,7 +38,7 @@ class CategoryControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should patch update" do
-    patch category_url(@category), params: { category: { name: @category.name } }
+    patch update_category_url(@category), params: { category: { name: @category.name } }
     assert_redirected_to categories_url(@category)
   end  
 

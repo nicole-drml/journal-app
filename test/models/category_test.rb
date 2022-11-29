@@ -35,6 +35,6 @@ class CategoryTest < ActiveSupport::TestCase
     category.save
     id = category.id
     refute_nil Category.find(id), "Category exists"
-    assert_equal Category.find(id).details, 'School'
+    assert_equal Category.find(id).name, 'School'
   end
 end

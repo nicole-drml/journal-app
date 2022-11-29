@@ -1,5 +1,5 @@
-class CategoryController < ApplicationController
-    before_action :set_category, only: %i[ show edit update destroy ]
+class CategoriesController < ApplicationController
+    before_action :set_category, only: %i[ show edit update delete ]
 
     # GET /categories or /categories.json
   def index
@@ -48,8 +48,8 @@ class CategoryController < ApplicationController
   end
 
   # DELETE /categories/1 or /categories/1.json
-  def destroy
-    @category.destroy
+  def delete
+    @category.delete
 
     respond_to do |format|
       format.html { redirect_to categories_url, notice: "Category was successfully destroyed." }

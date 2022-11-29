@@ -24,6 +24,7 @@ class TasksController < ApplicationController
 
     def destroy
     end
+    
     private
     def set_category
         @category = Category.find params[:task_id]
