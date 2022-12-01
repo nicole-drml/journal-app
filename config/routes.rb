@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  root 'categories#index'
   get '/categories' => 'categories#index', as: 'categories'
   get '/categories/new' => 'categories#new', as: 'new_category'
   post '/categories/create' => 'categories#create', as: 'create_category'
