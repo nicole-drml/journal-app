@@ -1,7 +1,2 @@
-<h1> @category.name </h1>
+<h1><%= @category.name %></h1>
 
-<% @tasks.each do |task| %>
-    <%= task.name %>
-    <%= task.details %>
-    <%= task.due_date %>
-end

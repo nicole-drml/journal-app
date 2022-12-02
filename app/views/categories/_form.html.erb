@@ -1,0 +1,21 @@
+<%= form_with(model: category) do |form| %>
+    <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    </div>
+    
+    <div id="submit-button" >
+        <%= form.submit%>
+    </div>
+
+    <% if category.errors.any? %>
+        <div style="color: red" class="errors_container">
+            <ul>
+                <% category.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+<% end %>
