@@ -7,6 +7,8 @@ class TasksController < ApplicationController
     end
 
     def show
+        @category = Category.find(params[:category_id])
+        @task = Task.find(params[:id])
     end
     
     def new
@@ -26,8 +28,8 @@ class TasksController < ApplicationController
     end
     
     private
-    def set_category
-        @category = Category.find params[:task_id]
+    def set_task
+        @task = @category.tasks.find(params[:task_id])
     end
 
     def task_params

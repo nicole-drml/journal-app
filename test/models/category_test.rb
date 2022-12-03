@@ -2,9 +2,6 @@ require "test_helper"
 
 
 class CategoryTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
   test "should not save Category without name" do
     category = Category.new
     category.name = ''
@@ -18,7 +15,8 @@ class CategoryTest < ActiveSupport::TestCase
 
     category = Category.new
     category.name = 'School'
-    assert_not category.save, "Saved the category with an existing name" 
+    binding.pry
+    assert_equal category.save, "Saved the category with an existing name" 
   end
 
   test "should be able to update category name" do

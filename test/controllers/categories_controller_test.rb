@@ -1,10 +1,6 @@
 require "test_helper"
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
-
   setup do
     @category = categories(:one)
   end
@@ -39,7 +35,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should patch update" do
     patch update_category_url(@category), params: { category: { name: @category.name } }
-    assert_redirected_to categories_url(@category)
+    assert_redirected_to category_url(@category)
   end  
 
   test "should delete category" do
