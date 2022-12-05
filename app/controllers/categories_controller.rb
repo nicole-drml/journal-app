@@ -18,25 +18,22 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
 
-    respond_to do |format|
       if @category.save
-        format.html { redirect_to category_url(@category), notice: "category was successfully created." }
-        format.json { render :show, status: :created, location: @category }
+        redirect_to category_url(@category)
       else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to category_url(@category), notice: "Category was successfully updated." }
-        format.json { render :show, status: :ok, location: @category }
+        redirect_to category_url(@category)
+        #notice: "Category was successfully updated." 
+        render :show
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @category.errors, status: :unprocessable_entity }
+        render :edit
+        #status: :unprocessable_entity 
       end
     end
   end

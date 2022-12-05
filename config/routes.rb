@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/' => 'users#index'
-  post '/users' => 'users#create'
+  post '/users' => 'users#create', as: 'users'
+  get '/users/:id' => 'users#show', as: 'user'
 
   get '/categories' => 'categories#index', as: 'categories'
   get '/categories/new' => 'categories#new', as: 'new_category'

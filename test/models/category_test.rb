@@ -9,14 +9,9 @@ class CategoryTest < ActiveSupport::TestCase
   end
 
   test "should not save Category if name already exists" do
-    category = Category.new
-    category.name = 'School'
-    assert category.save, "Saved with unique name" 
-
-    category = Category.new
-    category.name = 'School'
-    binding.pry
-    assert_equal category.save, "Saved the category with an existing name" 
+    school = Category.new
+    school.name = 'School'
+    assert_not school.save, "Saved the category with an existing name" 
   end
 
   test "should be able to update category name" do
@@ -27,12 +22,4 @@ class CategoryTest < ActiveSupport::TestCase
     assert Category.update(name: 'Work'), "Category name updated"
   end
 
-  test "should be able to show category name" do
-    category = Category.new
-    category.name = 'School'
-    category.save
-    id = category.id
-    refute_nil Category.find(id), "Category exists"
-    assert_equal Category.find(id).name, 'School'
-  end
 end
