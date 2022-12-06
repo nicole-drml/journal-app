@@ -6,43 +6,43 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index" do
-      get categories_url
+      get categories_path
       assert_response :success
   end
 
-  test "should get new" do
-    get new_category_url
+  test "should render new" do
+    get new_category_path
     assert_response :success
   end
 
-  test "should post create" do
+  test "should create category" do
     assert_difference("Category.count") do
-      post categories_url, params: { category: { name: "Personal" } }
+      post categories_path, params: { category: { name: "Home" } }
     end
 
-    assert_redirected_to category_url(Category.last)
+    assert_redirected_to category_path(Category.last)
   end
 
-  test "should get show" do
-    get category_url(@category)
+  test "should show category" do
+    get category_path(@category)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_category_url(@category)
+    get edit_category_path(@category)
     assert_response :success
   end
 
-  test "should patch update" do
-    patch update_category_url(@category), params: { category: { name: "NewName" } }
-    assert_redirected_to category_url(@category)
+  test "should update category" do
+    patch update_category_path(@category), params: { category: { name: "NewName" } }
+    assert_redirected_to category_path(@category)
   end  
 
   test "should delete category" do
     assert_difference("Category.count", -1) do
-      delete delete_category_url(@category)
+      delete delete_category_path(@category)
     end
 
-    assert_redirected_to categories_url
+    assert_redirected_to categories_path
   end
 end
