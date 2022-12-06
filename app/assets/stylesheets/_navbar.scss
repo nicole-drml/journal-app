@@ -1,0 +1,36 @@
+header {
+    display: flex;
+    align-items: flex-end;
+    background-color: rgba(184, 126, 45, .2);
+    align-items: center;
+    padding: 3px 5px;
+    z-index: 500;
+    font-family: 'Lora', serif;
+    
+    ul {
+    margin-left: auto;
+    margin-right: 20px;
+    display: flex;
+    gap: 20px;
+    padding: 5px;
+    list-style-type: none;
+    font-size: 16px;
+    font-weight: 700;
+
+        .nav_link {
+            text-decoration: none;
+            padding: 2px;
+            transition: 300ms;
+            color: rgb(70, 33, 80);
+
+            &:visited {
+                text-decoration: none;
+            }
+
+            &:hover {
+               color: rgba(70, 33, 80, .60);
+               transition: 300ms;
+            }
+        }
+    }
+}

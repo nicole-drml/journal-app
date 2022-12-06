@@ -3,6 +3,16 @@
 <h1>Signup</h1>
 
 <%= form_with model: @user, url: sign_up_path do |form| %>
+    <% if @user.errors.any? %>
+        <div class="alert">
+            <ul>
+                <% @user.errors.each do |error|%>
+                    <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
     <%= form.label :name %>
     <%= form.text_field :name, placeholder: "Juan Cruz" %>
     <%= form.label :email %>

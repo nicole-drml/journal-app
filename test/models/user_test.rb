@@ -25,22 +25,32 @@ class UserTest < ActiveSupport::TestCase
     user.name = 'Kory Rio'
     user.email = 'ndrml@google.com'
     user.password = ''
+    user.password_confirmation = ''
     assert_not_nil user.save, "Saved the user without a password"
+  end
+
+  test "should not save User with mismatched password" do
+    user = User.new
+    user.name = 'Kory Rio'
+    user.email = 'ndrml@google.com'
+    user.password = 'NOmUc3m00RsqyRe'
+    user.password_confirmation = 'mUc3m00RsqyRe'
+    assert_not_nil user.save, "Passwords do not match"
   end
 
   test "should not save User if email already exists" do
     user = User.new
-    user.name = "Hero Antsie"
-    user.email = 'enloziekins@google.com'
+    user.name = "Hero Ant"
+    user.email = 'antsie@google.com'
     user.password = "mUc3m00RsqyRe"
     user.password_confirmation = "mUc3m00RsqyRe"
     assert user.save, "Saved with unique email" 
 
     user2 = User.new
     user2.name = "Villain Ant"
-    user2.email = 'enloziekins@google.com'
+    user2.email = 'antsie@google.com'
     user2.password = "H3lLoworld_!"
-    user2.password = "H3lLoworld_!"
+    user2.password_confirmation = "H3lLoworld_!"
     assert_not user2.save, "Email already exists"
   end
 
@@ -67,10 +77,21 @@ class UserTest < ActiveSupport::TestCase
 
   end
 
+  test "should save User if all conditions are met" do
+    user1 = User.new
+    user1.name = "Villain Ant"
+    user1.email = 'antsie@google.com'
+    assert_match( URI::MailTo::EMAIL_REGEXP, user1.email, "Saved an en email with local domain name, no TLD" )
+    user1.password = "H3lLoworld_!"
+    user1.password_confirmation = "H3lLoworld_!"
+    assert user1.save, "Successfully registered"
 
-  test "should save User if email follows valid format" do
     user = User.new
+    user.name = "Village Ant"
     user.email = 'hello@local'
     assert_match( URI::MailTo::EMAIL_REGEXP, user.email, "Saved an en email with local domain name, no TLD" )
+    user.password = "H3lLoworld_!"
+    user.password_confirmation = "H3lLoworld_!"
+    assert user.save, "Successfully registered"
   end
 end

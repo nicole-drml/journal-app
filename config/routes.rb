@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   root 'home#index' 
 
-  post 'sign_up' => 'registrations#create'
-  get 'sign_up/new' => 'registrations#new'
+  post '/sign_up' => 'registrations#create'
+  get '/sign_up/new' => 'registrations#new'
 
   get '/categories' => 'categories#index', as: 'categories'
   get '/categories/new' => 'categories#new', as: 'new_category'

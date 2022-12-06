@@ -1,22 +1,27 @@
 class RegistrationsController < ApplicationController
-
     def index
         @users = User.all
-        @user = User.new
     end
 
     def create
         user = User.new(user_params)
-
         if user.save
-            redirect_to root_path, notice: "Successfully created account"
+            respond_to do |format|
+                format.html { redirect_to root_path, notice: "Successfully created account" }
+            end
         else
-            render :new
+            respond_to do |format|
+                format.html { render :new, status: :unprocessable_entity }
+            end
         end
+    end
+
+    def new
+        @user = User.new
     end
 
     private
         def user_params
-            params.require(:user).permit(:name, :email, :password, :password_confirmation)
+            params.require(:user).permit(:name, :email, :password_digest)
         end
 end
