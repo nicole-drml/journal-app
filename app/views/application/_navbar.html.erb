@@ -1,10 +1,16 @@
 <header>
-    <strong id="logo-span">Journee</strong>
+    <strong id="logo-span">Journ.io</strong>
     <nav>
         <ul>
         <li><%= link_to "Home", root_path, :class => "nav_link" %> </li>
-        <li><%= link_to "Register", registrations_new_path, :class => "nav_link" %> </li>
-        <li><%= link_to "Sign In", new_sign_in_path, :class => "nav_link" %></li>
+        <% if Current.user %>
+            <li><%= link_to "Dashboard", categories_path, :class => "nav_link" %></li>
+            <li><%= link_to "Logout", logout_path, data: {"turbo_method": "delete"}, :class => "nav_link" %></li>
+        <% else %>
+            <li><%= link_to "Register", registrations_new_path, :class => "nav_link" %> </li>
+            <li><%= link_to "Login", new_sign_in_path, :class => "nav_link" %></li>
+        <% end %>
         </ul>
     </nav>
 </header>
+

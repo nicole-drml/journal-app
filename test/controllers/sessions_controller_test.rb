@@ -1,25 +1,12 @@
 require "test_helper"
-=begin
 class SessionsControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
 
-  setup do
-    @user = users(:one)
-  end
 
-  test "should login user" do
-    user = User.create(:user)
-    controller.session[:user_id] = user.id
-    get 'users'
-    expect(@users.size).to eq(1)
+  test "should authenticate user" do   
+    @user = User.create(name: "Dory", email: "dory@gmail.com", password_digest: BCrypt::Password.create("PassWord1231"), password_confirmation: "PassWord1231")
+    assert @user.save, "Successfully registered"
 
-    assert_difference("User.count") do
-      post users_url, params: { user: { name: @user.name, email: @user.email, password: @user.password } }
-    end
-
-    assert_redirected_to categories_url(@category)
+    @user.authenticate("PassWord1231")
+    assert_redirected_to categories_url
   end
 end
-=end

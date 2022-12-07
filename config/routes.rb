@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   get '/sign_in' => 'sessions#new', as: 'new_sign_in'
   post '/sign_in' => 'sessions#create', as: 'create_sign_in'
- 
+  delete '/logout' => 'sessions#destroy'
 
   get '/categories' => 'categories#index', as: 'categories'
   get '/categories/new' => 'categories#new', as: 'new_category'
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get '/categories/:id' => 'categories#show', as: 'category'
   get '/categories/:id/edit' => 'categories#edit', as: 'edit_category'
   patch '/categories/:id' => 'categories#update', as: 'update_category'
-  delete '/categories/:id' => 'categories#delete', as: 'delete_category'
+  delete '/categories/:id' => 'categories#destroy', as: 'delete_category'
 
   get '/categories/:id' => 'tasks#index', as: 'category_tasks'
   get '/categories/:id/task_new(.:format)' => 'tasks#new', as: 'new_category_task'

@@ -17,7 +17,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create category" do
     assert_difference("Category.count") do
-      post categories_path, params: { category: { name: "Home" } }
+      post categories_path, params: { category: "New one" }
     end
 
     assert_redirected_to category_path(Category.last)
@@ -40,7 +40,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should delete category" do
     assert_difference("Category.count", -1) do
-      delete delete_category_path(@category)
+      delete category_path(@category)
     end
 
     assert_redirected_to categories_path
