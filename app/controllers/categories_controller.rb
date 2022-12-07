@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   def index
     @user = Current.user
-    @categories = Category.all
+    @categories = @user.categories
   end
 
   def show
