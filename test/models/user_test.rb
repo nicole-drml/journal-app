@@ -6,8 +6,7 @@ class UserTest < ActiveSupport::TestCase
     user = User.new
     user.name = ''
     user.email = 'ndrml@google.com'
-    user.password = 'henlo!!Okay'
-    user.password_confirmation = 'henlo!!Okay'
+    user.password_digest = BCrypt::Password.create('henlo!!Okay')
     assert_not_nil user.save, "Saved the user without a name"
   end
 
@@ -15,8 +14,7 @@ class UserTest < ActiveSupport::TestCase
     user = User.new
     user.name = 'Kory Rio'
     user.email = ''
-    user.password = 'henlo!!Okay'
-    user.password_confirmation = 'henlo!!Okay'
+    user.password_digest = BCrypt::Password.create('henlo!!Okay')
     assert_not user.save, "Saved the user without an email"
   end
 
@@ -24,8 +22,7 @@ class UserTest < ActiveSupport::TestCase
     user = User.new
     user.name = 'Kory Rio'
     user.email = 'ndrml@google.com'
-    user.password = ''
-    user.password_confirmation = ''
+    user.password_digest = ''
     assert_not_nil user.save, "Saved the user without a password"
   end
 
@@ -33,8 +30,8 @@ class UserTest < ActiveSupport::TestCase
     user = User.new
     user.name = 'Kory Rio'
     user.email = 'ndrml@google.com'
-    user.password = 'NOmUc3m00RsqyRe'
-    user.password_confirmation = 'mUc3m00RsqyRe'
+    user.password_digest = BCrypt::Password.create('Password12345!')
+    user.password_confirmation = BCrypt::Password.create('NOTPassword12345!')
     assert_not_nil user.save, "Passwords do not match"
   end
 
@@ -42,15 +39,13 @@ class UserTest < ActiveSupport::TestCase
     user = User.new
     user.name = "Hero Ant"
     user.email = 'antsie@google.com'
-    user.password = "mUc3m00RsqyRe"
-    user.password_confirmation = "mUc3m00RsqyRe"
+    user.password = BCrypt::Password.create('Password12345!')
     assert user.save, "Saved with unique email" 
 
     user2 = User.new
     user2.name = "Villain Ant"
     user2.email = 'antsie@google.com'
-    user2.password = "H3lLoworld_!"
-    user2.password_confirmation = "H3lLoworld_!"
+    user2.password_digest = BCrypt::Password.create('Password12345!')
     assert_not user2.save, "Email already exists"
   end
 
@@ -82,16 +77,14 @@ class UserTest < ActiveSupport::TestCase
     user1.name = "Villain Ant"
     user1.email = 'antsie@google.com'
     assert_match( URI::MailTo::EMAIL_REGEXP, user1.email, "Saved an en email with local domain name, no TLD" )
-    user1.password = "H3lLoworld_!"
-    user1.password_confirmation = "H3lLoworld_!"
+    user1.password_digest = BCrypt::Password.create('Password12345!')
     assert user1.save, "Successfully registered"
 
     user = User.new
     user.name = "Village Ant"
     user.email = 'hello@local'
     assert_match( URI::MailTo::EMAIL_REGEXP, user.email, "Saved an en email with local domain name, no TLD" )
-    user.password = "H3lLoworld_!"
-    user.password_confirmation = "H3lLoworld_!"
+    user.password_digest = BCrypt::Password.create('Password12345!')
     assert user.save, "Successfully registered"
   end
 end
