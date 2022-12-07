@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             respond_to do |format|
-                format.html { redirect_to create_registration_path, notice: "Successfully created account" }
+                format.html { redirect_to categories_path, notice: "Successfully created account" }
             end
         else
             respond_to do |format|
@@ -22,7 +22,9 @@ class RegistrationsController < ApplicationController
     end
 
     private
+    
         def user_params
             params.require(:user).permit(:name, :email, :password_digest )
         end
 end
+

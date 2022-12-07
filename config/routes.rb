@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   post '/registrations' => 'registrations#create', as: 'create_registration'
   get '/registrations/new' => 'registrations#new'
 
+  get '/sign_in' => 'sessions#new', as: 'new_sign_in'
+  post '/sign_in' => 'sessions#create', as: 'create_sign_in'
+ 
+
   get '/categories' => 'categories#index', as: 'categories'
   get '/categories/new' => 'categories#new', as: 'new_category'
   post '/categories' => 'categories#create', as: 'create_category'
