@@ -1,5 +1,8 @@
 <header>
     <strong id="logo-span">Journ.io</strong>
+    <% if Current.user %>
+        <span id="header_vertical_line_span"> | </span> <span id="header_current_user_span"> <%= Current.user.name.split(" ")[0].capitalize %></span>
+    <% end %>
     <nav>
         <ul>
         <li><%= link_to "Home", root_path, :class => "nav_link" %> </li>

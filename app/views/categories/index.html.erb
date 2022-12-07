@@ -1,14 +1,18 @@
 <p><%= notice %></p>
 <p><%= alert %></p>
 
-<h1>Categories</h1>
+<h1>CATEGORIES</h1>
 
-<div>
-    <%= link_to "New Category", new_category_path, :id => "link_to_new_category" %>
+<div id="categories_container">
+    <%= link_to new_category_path, :id => "link_to_new_category" do %>
+        <i class="fa-solid fa-plus"></i>
+    <% end %>
 
-    <% @categories.each do |category| %>
-        <%= link_to category do %>
-            <span><%= category.name %> </span> <br>
-        <% end %>
+    <% @categories.reverse.each do |category| %>
+        <div id="each_category_container">
+            <%= link_to category do %>
+                <h2 id="category_name"><%= category.name.upcase %> </h2>
+            <% end %>
+        </div>
     <% end %>
 </div>
