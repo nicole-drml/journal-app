@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
     before_action :set_category, only: %i[ show edit update destroy ]
 
   def index
+    @user = Current.user
     @categories = Category.all
   end
 
@@ -9,6 +10,7 @@ class CategoriesController < ApplicationController
   end
 
   def new
+    @user = Current.user
     @category = Category.new
   end
 
@@ -16,7 +18,8 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    @user = Current.user
+    @category = @user.categories.new(category_params)
 
     respond_to do |format|
       if @category.save

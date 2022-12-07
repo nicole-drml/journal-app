@@ -9,11 +9,10 @@ class RegistrationsController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params)
-
+        @user = User.new(user_params.merge password_digest:BCrypt::Password.create(user_params[:params_confirmation]))
         respond_to do |format|
             if @user.save
-                format.html { redirect_to categories_path, notice: "Successfully created account" }
+                format.html { redirect_to new_sign_in_path, notice: "Successfully created account" }
             else
                 format.html { render :new, status: :unprocessable_entity }
             end
@@ -23,7 +22,7 @@ class RegistrationsController < ApplicationController
     private
 
         def user_params
-            params.require(:user).permit(:name, :email, :password_digest )
+            params.require(:user).permit(:name, :email, :password, :password_confirmation)
         end
 end
 
