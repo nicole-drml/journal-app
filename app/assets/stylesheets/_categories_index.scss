@@ -1,0 +1,15 @@
+#link_to_new_category {
+  text-decoration: none;
+  color: rgb(23, 23, 23);
+  transition: 300ms;
+  font-weight: 700;
+
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: rgb(22, 83, 130);
+    transition: 300ms;
+  }
+}

@@ -19,9 +19,13 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
       if @category.save
-        redirect_to category_url(@category)
+        respond_to do |format|
+          format.html { redirect_to create_category_path, notice: "Successfully created account" }
+        end
       else
-        render :new
+        respond_to do |format|
+            format.html { render :new, status: :unprocessable_entity }
+        end
       end
   end
 

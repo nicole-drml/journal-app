@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'home#index' 
 
   get '/registrations' => 'registrations#index', as: 'registrations'
-  post '/registrations' => 'registrations#create'
+  post '/registrations' => 'registrations#create', as: 'create_registration'
   get '/registrations/new' => 'registrations#new'
 
   get '/categories' => 'categories#index', as: 'categories'

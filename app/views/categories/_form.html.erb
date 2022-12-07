@@ -1,21 +1,22 @@
-<%= form_with(model: category) do |form| %>
+<%= form_with model: @category, url: categories_path do |form| %>
     <div>
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: "category" %>
     </div>
     
-    <div id="submit-button" >
+    <div id="submit_button" >
         <%= form.submit%>
     </div>
 
-    <% if category.errors.any? %>
-        <div style="color: red" class="errors_container">
+    <% if @category.errors.any? %>
+        <div id="errors_container_new_category">
             <ul>
-                <% category.errors.each do |error| %>
+                <% @category.errors.each do |error| %>
                 <li><%= error.full_message %></li>
                 <% end %>
             </ul>
         </div>
     <% end %>
 
+   
 <% end %>

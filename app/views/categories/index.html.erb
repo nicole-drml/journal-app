@@ -1,4 +1,4 @@
-#render "preloader"
+<%# #render "preloader" %>
 
 <p><%= notice %></p>
 <p><%= alert %></p>
@@ -6,7 +6,7 @@
 <h1>Categories</h1>
 
 <div>
-    <h2><%= link_to "New Category", new_category_path %></h2>
+    <%= link_to "New Category", new_category_path, :id => "link_to_new_category" %>
 
     <% @categories.each do |category| %>
         <%= link_to category do %>

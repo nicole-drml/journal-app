@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             respond_to do |format|
-                format.html { redirect_to root_path, notice: "Successfully created account" }
+                format.html { redirect_to create_registration_path, notice: "Successfully created account" }
             end
         else
             respond_to do |format|
