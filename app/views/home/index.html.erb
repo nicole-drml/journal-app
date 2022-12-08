@@ -1,6 +1,10 @@
 <div id="homepage_container">
     <%= image_tag 'blank_calendar.png', id: "notes_gif" %>
     <%= image_tag 'journ.io_homepage.gif', id: "homepage_gif" %>
-    <span id="to_do_span"">to-do list</span>
-    <span id="home_register_link"><%= link_to "register", registrations_new_path %></span>
+    <% if Current.user %>
+        <span id="hello_span"">Hello, <%= Current.user.name.split(" ")[0].capitalize %>!</span>
+    <% else %>
+        <span id="to_do_span"">to-do list</span>
+        <span id="home_register_link"><%= link_to "register", registrations_new_path %></span>
+    <% end %>
 </div>
