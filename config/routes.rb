@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/registrations' => 'registrations#index', as: 'registrations'
   post '/registrations' => 'registrations#create', as: 'create_registration'
-  get '/registrations/new' => 'registrations#new'
+  get '/registrations/new' => 'registrations#new', as: 'new_registrations'
 
   post '/sign_in' => 'sessions#create', as: 'create_sign_in'
   get '/sign_in' => 'sessions#new', as: 'new_sign_in'
