@@ -102,10 +102,9 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: aliceblue;
 
   h2 {
-    color: rgb(131, 49, 49);
+    color: rgb(23, 23, 23);
     margin: auto;
     display: block;
     margin-top: auto;
@@ -113,11 +112,11 @@ form {
 
     #dashboard_link a {
       text-decoration: none;
-      color: rgb(152, 111, 61);
+      color: rgb(255, 129, 44);
 
       &:visited {
         text-decoration: none;
-        color: rgb(152, 111, 61);
+        color: rgb(255, 129, 44);
       }
 
       &:hover {

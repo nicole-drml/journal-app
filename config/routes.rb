@@ -18,14 +18,14 @@ Rails.application.routes.draw do
   put '/categories/:id' => 'categories#update'
   delete '/categories/:id' => 'categories#destroy', as: 'delete_category'
 
-  get '/categories/:id' => 'tasks#index', as: 'tasks'
-  post '/categories/:id' => 'tasks#create', as: 'create_task'
-  get '/categories/:id/task_new(.:format)' => 'tasks#new', as: 'new_task'
-  get '/categories/:id/task/:id/edit(.:format)' => 'tasks#edit', as: 'edit_task'
-  get '/categories/:id/task/:id(.:format)' => 'tasks#show', as: 'task'
-  patch '/categories/:id' => 'task#update', as: 'update_task'
-  put '/categories/:id' => 'task#update'
-  delete '/categories/:id/new_task/:id' => 'task#delete', as: 'delete_task'
+  get '/categories/:category_id/tasks' => 'tasks#index', as: 'tasks'
+  post '/categories/:category_id/tasks' => 'tasks#create', as: 'create_task'
+  get '/categories/:category_id/tasks/new' => 'tasks#new', as: 'new_task'
+  get '/tasks/:id/edit' => 'tasks#edit', as: 'edit_task'
+  get 'tasks/:id' => 'tasks#show', as: 'task'
+  patch '/tasks/:id' => 'tasks#update', as: 'update_task'
+  put '/tasks/:id' => 'task#update'
+  delete '/tasks/:id' => 'task#destroy', as: 'delete_task'
 
 
 

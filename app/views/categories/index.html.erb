@@ -15,10 +15,7 @@
                     <%= category.name.upcase %>
                 <% end %>
             </div>
-            <div id="add_task_in_card">
-                <span><%= link_to "New Task", root_path, :class => "nav_link" %> </span>
-            </div>
-            <div id="task_in_card">
+            <div id="task_in_card" class="list_in_card" >
                 <%= link_to category do %>
                     <%= category.name.downcase %>
                 <% end %>

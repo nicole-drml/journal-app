@@ -33,7 +33,7 @@
       border: 1.5px dashed black;
       transition: 300ms;
 
-       > i {
+      > i {
         transition: 300ms;
         border: 2px solid rgb(23, 23, 23);
         color: rgb(23, 23, 23);
@@ -43,6 +43,8 @@
 
   #each_category_container {
     border: 1px solid black;
+    display: flex;
+    flex-direction: column;
 
     #category_card_name {
       display: flex;
@@ -50,29 +52,113 @@
 
       a {
         font-size: 2em;
-        font-weight: 700;
         text-decoration: none;
         color: rgb(23, 23, 23);
         transition: 300ms;
         font-weight: 700;
         padding-top: 5px;
-        font-family: 'Indie Flower', cursive;
-       
+        font-family: "Indie Flower", cursive;
+        border-bottom: 3px solid rgba(255, 255, 255, 0);
+
         &:visited {
-            text-decoration: none;
-            color: rgb(23, 23, 23);
+          text-decoration: none;
+          color: rgb(23, 23, 23);
         }
-  
+
         &:hover {
-            border-bottom: 3px solid #000; 
-            transition: 300ms;
+          border-bottom: 3px solid #000;
+          transition: 300ms;
         }
       }
     }
-    
+
+    #add_task_in_card {
+      margin: 0 0 2px 0;
+      display: block;
+      width: 100%;
+      cursor: pointer;
+
+      i::before {
+        color: rgba(23, 23, 23, 0.5);
+        margin-left: 10px;
+      }
+
+      span {
+        font-size: 1em;
+        text-decoration: none;
+        color: rgba(23, 23, 23, 0.5);
+        transition: 300ms;
+        padding-top: 5px;
+        padding: 0 5px 0 7px;
+        border-top: 2px solid rgba(255, 129, 44, 0);
+        border-bottom: 2px solid rgba(255, 129, 44, 0);
+      }
+
+      &:visited {
+        text-decoration: none;
+        color: rgb(23, 23, 23);
+      }
+
+      &:hover span {
+        transition: 300ms;
+        color: rgb(23, 23, 23);
+      }
+
+      &:hover i::before {
+        transition: 300ms;
+        color: rgb(23, 23, 23);
+      }
+    }
+    #task_in_card {
+      margin: 0 0 2px 0;
+      overflow-y: scroll;
+      flex-grow: 1;
+      border-radius: 15px;
+
+      &::-webkit-scrollbar {
+        padding-top: 10px;
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #462150;
+        border-radius: 20px;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin: 10px 0 10px;
+      }
+
+      a {
+        font-size: 1.2em;
+        text-decoration: none;
+        color: rgb(23, 23, 23);
+        transition: 300ms;
+        padding-top: 5px;
+        display: block;
+        padding: 0 5px;
+        border-top: 2px solid rgba(255, 129, 44, 0);
+        border-bottom: 2px solid rgba(255, 129, 44, 0);
+
+        &:visited {
+          text-decoration: none;
+          color: rgb(23, 23, 23);
+        }
+
+        &:hover {
+          transition: 300ms;
+        }
+      }
+
+      a::before {
+        content: "•";
+        color: rgba(23, 23, 23, 0);
+      }
+
+      a:hover::before {
+        content: "•";
+        color: rgb(23, 23, 23);
+      }
+    }
   }
-
-
-   
-  
 }
