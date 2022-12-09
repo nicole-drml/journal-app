@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     before_action :get_category
-    before_action :set_task
+    before_action :set_task, only: %i[show edit update destroy]
 
 
     def index
@@ -8,62 +8,58 @@ class TasksController < ApplicationController
     end
 
     def show
-        #@category = Category.find(params[:category_id])
-        #@task = Task.find(params[:id])
     end
     
     def new
-        @task = @category.tasks.new
+        @category = Category.find(params[:id]) 
+        @task = Task.new
     end
 
     def edit
     end
-    
+
     def create
-        @task = Task.find(params[:category_id])
+        @task = @category.tasks.new(task_params)
 
         respond_to do |format|
             if @task.save
-                format.html { redirect_to create_task_path, notice: "Successfully created account" }
+                format.html { redirect_to create_task_path, notice: 'Successfully added a new task' }
             else
-                format.html { render :new, status: :unprocessable_entity }
+                format.html { render :new }
             end
-          end
-
-
-
-
-          @comment = @post.comments.build(comment_params)
-
-          respond_to do |format|
-          if @comment.save
-              format.html { redirect_to post_comments_path(@post), notice: 'Comment was successfully created.' }
-              format.json { render :show, status: :created, location: @comment }
-          else
-              format.html { render :new }
-              format.json { render json: @comment.errors, status: :unprocessable_entity }
         end
-      end
     end
 
 
     def update
+        respond_to do |format|
+            if @task.update(task_params)
+              format.html { redirect_to task_url(@task), notice: "Task was successfully updated." }
+            else
+              format.html { render :edit, status: :unprocessable_entity }
+            end
+          end
     end
 
     def destroy
+        @task.destroy
+
+        respond_to do |format|
+          format.html { redirect_to tasks_url, notice: "Task was successfully destroyed." }
+        end
     end
     
     private
 
-    def get_category
-        @category = Category.find(params[:category_id])
+    def set_task
+        @task = Task.find(params[:id])
     end
 
-    def set_task
-        @task = @category.tasks.find(params[:id])
+    def get_category
+        @category = Category.find(params[:id]) 
     end
 
     def task_params
-        params.require(:task).permit(:name, :details, :due)
+        params.require(:task).permit(:name, :notes, :due)
     end
 end
