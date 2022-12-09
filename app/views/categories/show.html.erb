@@ -10,19 +10,21 @@
     <i class="fa-solid fa-pencil"></i>
 <% end %>
 
-<div id="task_index_container">
+<div id="task_in_categories_container">
     <div id="category_card_name">
-    <%= link_to new_task_path(@category) do %>
-        <span>NEW TASK</span>
-    <% end %>
+        <%= link_to new_task_path(@category) do %>
+            <span id="new_task_header">NEW TASK</span>
+            <i class="fa-solid fa-plus"></i>
+        <% end %>
     </div>
         <% if @category.tasks %>
-            <% @category.tasks.reverse.each do |task| %>
-                <div id="task_in_card" class="list_in_card" >
-                    <%= link_to task do %>
-                        <%= task.name.downcase %>
+            <% @category.tasks.each do |task| %>
+                <ul id="task_in_card" class="list_in_card" >
+                    <%= link_to task_path(@category, task) do %>
+                        <li><span id="datetime"><%= task.due.strftime("%B %d, %Y") %></span>
+                        <%= task.name.downcase %></li>
                     <% end %>
-                </div>  
+                </ul>  
             <% end %>
         <% end %>
 </div>

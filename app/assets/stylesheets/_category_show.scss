@@ -49,7 +49,7 @@
     width: fit-content;
     font-size: 2.5em;
     font-weight: 700;
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: "Gloria Hallelujah", cursive;
 
     &:visited {
       text-decoration: none;
@@ -69,49 +69,104 @@
 }
 
 #delete_category_link {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 25px;
-    i {
-        color: rgb(23, 23, 23);
-        font-size: 1.7em;
-    }
-    &:hover i {
-        color: rgb(131, 49, 49);
-        transition: 300ms;
-      }
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 25px;
+  i {
+    color: rgb(23, 23, 23);
+    font-size: 1.7em;
+  }
+  &:hover i {
+    color: rgb(131, 49, 49);
+    transition: 300ms;
+  }
 }
 
-#task_index_container {
-    display: flex;
-    flex-direction: column;
+#task_in_categories_container {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40vw;
+  height: 60vh;
+  overflow-y: scroll;
+  border: 1px solid black;
+  border-radius: 15px;
+
+  a {
+    font-size: 1.2em;
+    text-decoration: none;
+    color: rgb(23, 23, 23);
+    transition: 300ms;
+    width: 100%;
+
+    &:visited {
+      text-decoration: none;
+      color: rgb(23, 23, 23);
+    }
+  }
+
+  #category_card_name {
+    display: inline-flex;
     margin-left: auto;
     margin-right: auto;
-    width: 40vw;
-    height: 60vh;
-    padding: 0 20px;
-    overflow-y: scroll;
-    border: 1px solid black;
-    border-radius: 15px;
+    padding: 8px 30px;
+    font-size: 1em;
 
-
-    &::-webkit-scrollbar {
-        padding-top: 10px;
-        width: 5px;
-      }
-
-      &::-webkit-scrollbar-thumb {
-        background-color: #462150;
-        border-radius: 20px;
-      }
-
-      &::-webkit-scrollbar-track {
-        margin: 10px 0 10px;
-      }
-
-    li {
-        display: block;
-        font-size: 1.3em;
+    #new_task_header {
+      margin-left: auto;
+      width: 30%;
+      text-align: center;
+      color: rgba(23, 23, 23, 0.5);
+      transition: 300ms;
     }
+    .fa-solid {
+      margin-right: auto;
+      font-size: 0.7em;
+      color: rgba(23, 23, 23, 0.5);
+      transition: 300ms;
+    }
+
+    &:hover #new_task_header {
+      color: rgb(23, 23, 23);
+      transition: 300ms;
+    }
+
+    &:hover .fa-solid {
+      color: rgb(23, 23, 23);
+      transition: 300ms;
+    }
+  }
+  ul {
+    list-style-type: none;
+    display: block;
+    padding: 5px 10px;
+    margin-left: 5px;
+
+    &:hover {
+      transition: 300ms;
+      background-color: rgba(23, 23, 23, 0.05);
+    }
+
+    #datetime {
+      font-weight: 300;
+      font-size: 0.8em;
+      margin-right: 15px;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    padding-top: 10px;
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #462150;
+    border-radius: 20px;
+  }
+
+  &::-webkit-scrollbar-track {
+    margin: 10px 0 10px;
+  }
 }

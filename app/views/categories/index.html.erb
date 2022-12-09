@@ -16,13 +16,15 @@
                 <% end %>
             </div>
             <% if category.tasks %>
-                <% category.tasks.reverse.each do |task| %>
-                    <div id="task_in_card" class="list_in_card" >
-                        <%= link_to task_path(category, task) do %>
-                            <%= task.name.downcase %>
-                        <% end %>
-                    </div>  
-                <% end %>
+                <div id="list_container">
+                    <% category.tasks.each do |task| %>
+                        <div id="task_in_card" class="list_in_card" >
+                            <%= link_to task_path(category, task) do %>
+                                <%= task.name.downcase %>
+                            <% end %>
+                        </div>  
+                    <% end %>
+                </div>
             <% end %>
         </div>
     <% end %>

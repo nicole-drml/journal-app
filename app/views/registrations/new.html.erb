@@ -1,6 +1,6 @@
 <h1>Signup</h1>
 
-<% if !Current.user %>
+<% if Current.user.nil? %>
 <div id="sign-up-form-container">
     <%= form_with model: @user, url: registrations_path do |form| %>
         <div id="field-container">

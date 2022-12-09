@@ -51,11 +51,11 @@
       justify-content: center;
 
       a {
-        font-size: 1.6em;
+        font-size: 1.4em;
         text-decoration: none;
         color: rgb(23, 23, 23);
         transition: 300ms;
-        padding-top: 5px;
+        padding: 5px 20px;
         font-family: 'Gloria Hallelujah', cursive;
         border-bottom: 3px solid rgba(255, 255, 255, 0);
 
@@ -108,10 +108,13 @@
         color: rgb(23, 23, 23);
       }
     }
+
+    #list_container {
+      overflow-y: hidden;
+
+    }
+
     #task_in_card {
-      margin: 0 0 2px 0;
-      overflow-y: scroll;
-      flex-grow: 1;
       border-radius: 15px;
 
       &::-webkit-scrollbar {
@@ -133,9 +136,8 @@
         text-decoration: none;
         color: rgb(23, 23, 23);
         transition: 300ms;
-        padding-top: 5px;
         display: block;
-        padding: 0 5px;
+        padding: 0 10px;
         border-top: 2px solid rgba(255, 129, 44, 0);
         border-bottom: 2px solid rgba(255, 129, 44, 0);
 
@@ -151,13 +153,16 @@
 
       a::before {
         content: "•";
+        font-size: 1.3em;
         color: rgba(23, 23, 23, 0);
       }
 
       a:hover::before {
         content: "•";
+        font-size: 1.3em;
         color: rgb(23, 23, 23);
       }
     }
   }
+
 }

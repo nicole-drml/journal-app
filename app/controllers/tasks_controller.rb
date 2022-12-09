@@ -23,7 +23,7 @@ class TasksController < ApplicationController
 
         respond_to do |format|
             if @task.save
-                format.html { redirect_to create_task_path, notice: 'Successfully added a new task' }
+                format.html { redirect_to category_path(@category), notice: 'Successfully added a new task' }
             else
                 format.html { render :new }
             end
