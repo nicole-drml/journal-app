@@ -9,7 +9,7 @@ class RegistrationsController < ApplicationController
     end
 
     def create
-        @user = User.new(user_params.merge password_digest:BCrypt::Password.create(user_params[:params_confirmation]))
+        @user = User.new(user_params.merge password_digest:BCrypt::Password.create(user_params[:password_confirmation]))
         respond_to do |format|
             if @user.save
                     format.html { redirect_to new_sign_in_path, notice: "Successfully created account" }

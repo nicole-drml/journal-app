@@ -13,11 +13,11 @@
         </div>
         <div id="field-container">
             <%= form.label :password %>
-            <%= form.password_field :password_digest, placeholder: "password" %>
+            <%= form.password_field :password_digest, placeholder: "password", required: true %>
         </div>
         <div id="field-container">
             <%= form.label :password_confirmation %>
-            <%= form.password_field :password_confirmation, placeholder: "password confirmation" %>
+            <%= form.password_field :password_confirmation, placeholder: "password confirmation", required: true %>
         </div>
         <div id="submit-button" >
             <%= form.submit "Sign Up"%>

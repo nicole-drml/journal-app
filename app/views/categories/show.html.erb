@@ -12,40 +12,19 @@
 
 <div id="task_index_container">
     <div id="category_card_name">
-    <%= link_to new_task_url do %>
-        <span>cerate</span>
+    <%= link_to new_task_path(@category) do %>
+        <span>NEW TASK</span>
     <% end %>
     </div>
-    <% if @tasks %>
-        <ul>
-        <% @tasks.reverse.each do |task| %>
-            <li>
-            <span><%= task.due %></span>
-            <span><%= task.name.downcase %></span>
-            </li>
+        <% if @category.tasks %>
+            <% @category.tasks.reverse.each do |task| %>
+                <div id="task_in_card" class="list_in_card" >
+                    <%= link_to task do %>
+                        <%= task.name.downcase %>
+                    <% end %>
+                </div>  
+            <% end %>
         <% end %>
-        </ul>
-    <% end %>
-    <ul>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-    </ul>
 </div>
 
 <%= link_to @category, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@category.name}?" }, :id => "delete_category_link" do %>

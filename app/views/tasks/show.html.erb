@@ -1,0 +1,26 @@
+<%= link_to category_path(@category), :id => "back_button" do %>
+    <div>
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to <%= @category.name %> </span>
+    </div>
+<% end %>
+
+<%= link_to edit_task_path(@category), :id => "edit_category_link" do %>
+    <span><%= @task.name %></span>
+    <i class="fa-solid fa-pencil"></i>
+<% end %>
+
+<div id="task_index_container">
+        <span><%= @task.due.strftime("%B %d, %Y") %></span>
+        <span><%= @task.notes %></span>
+    <ul>
+        <li>task</li>
+        <li>task</li>
+        <li>task</li>
+    </ul>
+</div>
+
+<%= link_to @category, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@category.name}?" }, :id => "delete_category_link" do %>
+    <i class="fa-regular fa-trash-can"></i>
+<% end %>
+

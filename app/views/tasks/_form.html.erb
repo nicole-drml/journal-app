@@ -1,0 +1,33 @@
+<%= form_with(model: @task) do |form| %>
+    <div>
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: "task", autofocus: "on" %>
+    </div>
+
+    <div>
+    <%= form.label :due %>
+    <%= form.datetime_field :due %>
+    </div>
+
+    <div>
+    <%= form.label :notes %>
+    <%= form.text_area :notes, placeholder: "notes" %>
+    </div>
+
+    
+    <div id="submit_button" >
+        <%= form.submit%>
+    </div>
+
+    <% if @task.errors.any? %>
+        <div id="errors_container_new_task">
+            <ul>
+                <% @task.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+   
+<% end %>

@@ -18,14 +18,14 @@ Rails.application.routes.draw do
   put '/categories/:id' => 'categories#update'
   delete '/categories/:id' => 'categories#destroy', as: 'delete_category'
 
-  get '/categories/:id/tasks' => 'tasks#index', as: 'tasks'
-  post '/categories/:id/tasks' => 'tasks#create', as: 'create_task'
-  get '/categories/:id/tasks/new' => 'tasks#new', as: 'new_task'
-  get '/tasks/:id/edit' => 'tasks#edit', as: 'edit_task'
-  get '/categories/:id/tasks/:id' => 'tasks#show', as: 'task'
-  patch '/categories/:id/tasks/:id' => 'tasks#update', as: 'update_task'
-  put '/categories/:id/tasks/:id' => 'task#update'
-  delete '/categories/:id/tasks/:id' => 'task#destroy', as: 'delete_task'
+  get '/categories/:category_id/tasks' => 'tasks#index', as: 'tasks'
+  post '/categories/:category_id/tasks' => 'tasks#create', as: 'create_task'
+  get '/categories/:category_id/tasks/new' => 'tasks#new', as: 'new_task'
+  get '/categories/:category_id/tasks/:id/edit' => 'tasks#edit', as: 'edit_task'
+  get '/categories/:category_id/tasks/:id' => 'tasks#show', as: 'task'
+  patch '/categories/:category_id/tasks/:id' => 'tasks#update', as: 'update_task'
+  put '/categories/:category_id/tasks/:id' => 'task#update'
+  delete '/categories/:category_id/tasks/:id' => 'task#destroy', as: 'delete_task'
 
 
 
