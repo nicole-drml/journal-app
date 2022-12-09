@@ -18,7 +18,7 @@
         <% end %>
     </div>
         <% if @category.tasks %>
-            <% @category.tasks.each do |task| %>
+            <% @category.tasks.order('created_at DESC').each do |task| %>
                 <ul id="task_in_card" class="list_in_card" >
                     <%= link_to task_path(@category, task) do %>
                         <li><span id="datetime"><%= task.due.strftime("%B %d, %Y") %></span>
@@ -28,6 +28,8 @@
             <% end %>
         <% end %>
 </div>
+
+.order('created_at DESC')
 
 <%= link_to @category, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@category.name}?" }, :id => "delete_category_link" do %>
     <i class="fa-regular fa-trash-can"></i>

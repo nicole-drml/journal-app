@@ -8,7 +8,7 @@
         <i class="fa-solid fa-plus"></i>
     <% end %>
 
-    <% @categories.reverse.each do |category| %>
+    <% @categories.order('updated_at DESC').each do |category| %>
         <div id="each_category_container">
             <div id="category_card_name">
                 <%= link_to category do %>

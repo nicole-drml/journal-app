@@ -17,10 +17,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_031121) do
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
     t.integer "user_id"
-    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_categories_on_category_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -36,12 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_031121) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "password_digest", null: false
-    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_users_on_user_id"
   end
 
-  add_foreign_key "categories", "categories"
-  add_foreign_key "users", "users"
 end
