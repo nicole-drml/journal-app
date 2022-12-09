@@ -1,0 +1,23 @@
+#back_to_categories_link {
+
+    a {
+        font-size: 1.2em;
+        text-decoration: none;
+        color: rgb(23, 23, 23);
+        transition: 300ms;
+        padding-top: 5px;
+        display: block;
+        padding: 0 5px;
+        border-top: 2px solid rgba(255, 129, 44, 0);
+        border-bottom: 2px solid rgba(255, 129, 44, 0);
+
+        &:visited {
+          text-decoration: none;
+          color: rgb(23, 23, 23);
+        }
+
+        &:hover {
+          transition: 300ms;
+        }
+    }
+}

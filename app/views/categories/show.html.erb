@@ -1,9 +1,11 @@
 
-<%= link_to "Back to categories", categories_path %>
-<h1><%= @category.name %></h1>
+<%= link_to "Back to categories", categories_path, :id => "back_to_categories_link" %>
+
+<%= link_to edit_category_path(@category) do %>
+    <h1><%= @category.name %></h1>
+<% end %>
 <span><%= @category.created_at.to_s.split(" ")[0] %></span>
 
-<%= link_to "Rename category", edit_category_path(@category) %>
 <%= link_to "Delete category", @category, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@category.name}?" } %>
 
 

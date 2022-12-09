@@ -1,7 +1,7 @@
 <%= form_with(model: @category) do |form| %>
     <div>
     <%= form.label :name %>
-    <%= form.text_field :name, placeholder: "category" %>
+    <%= form.text_field :name, placeholder: "category", autofocus: "on" %>
     </div>
     
     <div id="submit_button" >
