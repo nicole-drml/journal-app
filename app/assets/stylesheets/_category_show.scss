@@ -1,23 +1,84 @@
-#back_to_categories_link {
+#back_button {
+  text-decoration: none;
+  margin: 20px;
+  margin-top: 10px;
+  display: flex;
 
-    a {
-        font-size: 1.2em;
-        text-decoration: none;
-        color: rgb(23, 23, 23);
-        transition: 300ms;
-        padding-top: 5px;
-        display: block;
-        padding: 0 5px;
-        border-top: 2px solid rgba(255, 129, 44, 0);
-        border-bottom: 2px solid rgba(255, 129, 44, 0);
+  align-items: center;
+  width: fit-content;
+  padding: 5px;
 
-        &:visited {
-          text-decoration: none;
-          color: rgb(23, 23, 23);
-        }
+  span,
+  i {
+    font-size: 1em;
+    color: rgb(23, 23, 23);
+    transition: 600ms;
+    border-top: 2px solid rgba(255, 129, 44, 0);
+    border-bottom: 2px solid rgba(255, 129, 44, 0);
 
-        &:hover {
-          transition: 300ms;
-        }
+    &:visited {
+      text-decoration: none;
+      color: rgb(23, 23, 23);
     }
+  }
+
+  i {
+    color: rgba(23, 23, 23, 0.3);
+    margin-right: 3px;
+    font-size: 1.2em;
+  }
+  &:hover i {
+    color: rgb(23, 23, 23);
+    transition: 300ms;
+  }
+}
+
+#edit_category_link {
+  text-decoration: none;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  align-items: center;
+  padding: 15px 50px;
+  span {
+    color: rgb(23, 23, 23);
+    transition: 600ms;
+    border-top: 2px solid rgba(255, 129, 44, 0);
+    border-bottom: 2px solid rgba(255, 129, 44, 0);
+    width: fit-content;
+    font-size: 2.5em;
+    font-weight: 700;
+    font-family: 'Gloria Hallelujah', cursive;
+
+    &:visited {
+      text-decoration: none;
+      color: rgb(23, 23, 23);
+    }
+  }
+
+  i {
+    color: rgba(23, 23, 23, 0.2);
+    margin-left: 15px;
+    font-size: 1.5em;
+  }
+  &:hover i {
+    color: rgb(23, 23, 23);
+    transition: 300ms;
+  }
+}
+
+#delete_category_link {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 25px;
+    i {
+        color: rgb(23, 23, 23);
+        font-size: 1.7em;
+    }
+    &:hover i {
+        color: rgb(131, 49, 49);
+        transition: 300ms;
+      }
 }

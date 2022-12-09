@@ -1,9 +1,12 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
+<%= link_to @category, :id => "back_button" do %>
+    <div>
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Preview this category</span>
+    </div>
+<% end %>
 
-<%= link_to "Back to categories", categories_path %>
 
 <%= render "form", category: @category %>
-
-<%= link_to "Preview this category", @category %>
