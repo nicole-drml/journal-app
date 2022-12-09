@@ -2,7 +2,6 @@
     <%= image_tag 'blank_calendar.png', id: "notes_gif" %>
     <%= image_tag 'journ.io_homepage.gif', id: "homepage_gif" %>
 
-
     <h2 id="to_do_span"">to-do list</h2>
     <% if Current.user %>
         <ul id="to_do_list">
@@ -10,6 +9,6 @@
             <li class="logged_in_to_do">stay awesome!</li>
         </ul>
     <% else %>
-        <span id="home_register_link"><%= link_to "register", registrations_new_path %></span>
+        <span id="home_register_link"><%= link_to "register", new_registration_path %></span>
     <% end %>
 </div>

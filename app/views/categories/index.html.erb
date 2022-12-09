@@ -10,9 +10,19 @@
 
     <% @categories.reverse.each do |category| %>
         <div id="each_category_container">
-            <%= link_to category do %>
-                <h2 id="category_name"><%= category.name.upcase %> </h2>
-            <% end %>
+            <div id="category_card_name">
+                <%= link_to category do %>
+                    <%= category.name.upcase %>
+                <% end %>
+            </div>
+            <div id="add_task_in_card">
+                <span><%= link_to "New Task", root_path, :class => "nav_link" %> </span>
+            </div>
+            <div id="task_in_card">
+                <%= link_to category do %>
+                    <%= category.name.downcase %>
+                <% end %>
+            </div>
         </div>
     <% end %>
 </div>

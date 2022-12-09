@@ -1,5 +1,6 @@
 <h1>Signup</h1>
 
+<% if !Current.user %>
 <div id="sign-up-form-container">
     <%= form_with model: @user, url: registrations_path do |form| %>
         <div id="field-container">
@@ -36,3 +37,9 @@
         <% end %>
     <% end %>
 </div>
+<% else %>
+<div id="sign_with_current_user">
+<h2> You already have an account. Go back to your  <span id="dashboard_link"><%= link_to "dashboard", categories_path %></span></h2>
+</div>
+<% end %>
+

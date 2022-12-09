@@ -2,23 +2,28 @@
 
 <h1>Sign In</h1>
 
-<div id="sign_in_form_container">
+<% if !Current.user %>
+    <%= form_with url: new_sign_in_path do |form| %>
 
-<%= form_with url: new_sign_in_path do |form| %>
+            <div id="field_container">
+                <%= form.label :email %>
+                <%= form.text_field :email, placeholder: "user@email.com" %>
+            </div>
 
-    <div id="field_container">
-        <%= form.label :email %>
-        <%= form.text_field :email, placeholder: "user@email.com" %>
+            <div id="field_container">
+                <%= form.label :password %>
+                <%= form.password_field :password_digest, placeholder: "password" %>
+            </div>
+
+            <div id="submit_button" >
+                <%= form.submit "Sign In"%>
+            </div>
+
+                <p><%= alert %></p>
+    <% end %>
+
+<% else %>
+    <div id="sign_with_current_user">
+        <h2> You are already signed in. Go back to your  <span id="dashboard_link"><%= link_to "dashboard", categories_path %></span></h2>
     </div>
-
-    <div id="field_container">
-        <%= form.label :password %>
-        <%= form.password_field :password_digest, placeholder: "password" %>
-    </div>
-
-    <div id="submit_button" >
-        <%= form.submit "Sign In"%>
-    </div>
-
-        <p><%= alert %></p>
 <% end %>

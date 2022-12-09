@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/registrations' => 'registrations#index', as: 'registrations'
   post '/registrations' => 'registrations#create', as: 'create_registration'
-  get '/registrations/new' => 'registrations#new', as: 'new_registrations'
+  get '/registrations/new' => 'registrations#new', as: 'new_registration'
 
   post '/sign_in' => 'sessions#create', as: 'create_sign_in'
   get '/sign_in' => 'sessions#new', as: 'new_sign_in'
@@ -18,11 +18,11 @@ Rails.application.routes.draw do
   put '/categories/:id' => 'categories#update'
   delete '/categories/:id' => 'categories#destroy', as: 'delete_category'
 
-  get '/categories/:id' => 'tasks#index', as: 'category_tasks'
-  post '/categories/:id' => 'tasks#create', as: 'create_category_task'
-  get '/categories/:id/task_new(.:format)' => 'tasks#new', as: 'new_category_task'
-  get '/categories/:id/task/:id/edit(.:format)' => 'tasks#edit', as: 'edit_category_task'
-  get '/categories/:id/task/:id(.:format)' => 'tasks#show', as: 'category_task'
+  get '/categories/:id' => 'tasks#index', as: 'tasks'
+  post '/categories/:id' => 'tasks#create', as: 'create_task'
+  get '/categories/:id/task_new(.:format)' => 'tasks#new', as: 'new_task'
+  get '/categories/:id/task/:id/edit(.:format)' => 'tasks#edit', as: 'edit_task'
+  get '/categories/:id/task/:id(.:format)' => 'tasks#show', as: 'task'
   patch '/categories/:id' => 'task#update', as: 'update_task'
   put '/categories/:id' => 'task#update'
   delete '/categories/:id/new_task/:id' => 'task#delete', as: 'delete_task'

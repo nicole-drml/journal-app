@@ -39,13 +39,15 @@ header {
                     padding: 2px;
                     transition: 300ms;
                     color: whitesmoke;
+                    border-bottom: 2px solid rgba(245, 245, 245, 0); 
         
                     &:visited {
                         text-decoration: none;
                     }
         
                     &:hover {
-                       color: rgb(125, 123, 123);
+                        border-bottom: 2px solid rgb(245, 245, 245); 
+                        border-bottom-style: solid;
                        transition: 300ms;
                     }
                 }

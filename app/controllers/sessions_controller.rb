@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         if !Current.user 
             if user.present? && user.authenticate(params[:password])
                 session[:user_id] = user.id 
-                redirect_to categories_path, notice: "Logged in successfully"
+                redirect_to categories_path
             else
                 flash[:alert] = "Invalid email or password"
                 redirect_to new_sign_in_path

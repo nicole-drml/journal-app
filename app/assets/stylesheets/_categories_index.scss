@@ -26,15 +26,15 @@
       border: 2px solid rgba(23, 23, 23, 0.3);
       padding: 5px 8px;
       border-radius: 40px;
-      transition: 300ms;
     }
 
     &:hover {
-      transition: 300ms;
       color: rgb(23, 23, 23);
       border: 1.5px dashed black;
+      transition: 300ms;
 
        > i {
+        transition: 300ms;
         border: 2px solid rgb(23, 23, 23);
         color: rgb(23, 23, 23);
       }
@@ -43,44 +43,36 @@
 
   #each_category_container {
     border: 1px solid black;
-  }
 
-  #category_name {
-    text-decoration: none;
-    color: rgb(23, 23, 23);
-    transition: 300ms;
-    font-weight: 700;
-    text-align: center;
-    padding-top: 5px;
+    #category_card_name {
+      display: flex;
+      justify-content: center;
 
-
-
-    a {
-      color: rgb(23, 23, 23);
-      font-family: 'Indie Flower', cursive;
-      text-decoration: none;
-      font-size: 4em;
-      font-weight: 700;
-
-      &:visited {
-          text-decoration: none;
-          color: rgb(23, 23, 23);
-      }
-
-      &:hover {
-          border-bottom: 3px solid #000; 
-          padding-bottom: 3px;
-          border-bottom-style: solid;
-          transition: 300ms;
+      a {
+        font-size: 2em;
+        font-weight: 700;
+        text-decoration: none;
+        color: rgb(23, 23, 23);
+        transition: 300ms;
+        font-weight: 700;
+        padding-top: 5px;
+        font-family: 'Indie Flower', cursive;
+       
+        &:visited {
+            text-decoration: none;
+            color: rgb(23, 23, 23);
+        }
+  
+        &:hover {
+            border-bottom: 3px solid #000; 
+            transition: 300ms;
+        }
       }
     }
-    &:visited {
-      text-decoration: none;
-    }
-
-    &:hover {
-      color: rgb(125, 123, 123);
-      transition: 300ms;
-    }
+    
   }
+
+
+   
+  
 }
