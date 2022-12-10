@@ -1,3 +1,41 @@
+<%= link_to @category, :id => "back_button" do %>
+    <div>
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Back to <%= @category.name %> </span>
+    </div>
+<% end %>
+
 <h1> New Task </h1>
-<p> Category: <%= @category.name %> </p>
-<%= render "form", category: @task %>
+<%= form_with(model: @task) do |form| %>
+    <div class="data_container">
+    <%= form.label :name %>
+    <%= form.text_field :name, placeholder: "task", autofocus: "on" %>
+    </div>
+
+    <div class="data_container">
+    <%= form.label :due %>
+    <%= form.datetime_field :due %>
+    </div>
+
+    <div class="data_container" id="notes_container">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, placeholder: "notes" %>
+    </div>
+    </div>
+    
+    <div id="submit_button" >
+        <%= form.submit%>
+    </div>
+
+    <% if @task.errors.any? %>
+        <div id="errors_container_new_task">
+            <ul>
+                <% @task.errors.each do |error| %>
+                <li><%= error.full_message %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+   
+<% end %>

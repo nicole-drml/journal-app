@@ -6,10 +6,12 @@
 #
 one: 
   name: School
+  user_id: 1
 
 # column: value
 #
 two: 
   name: Work
+  user_id: 1
 
 # column: value

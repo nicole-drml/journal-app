@@ -10,17 +10,18 @@
     <i class="fa-solid fa-pencil"></i>
 <% end %>
 
-<div id="task_index_container">
-        <span><%= @task.due.strftime("%B %d, %Y") %></span>
-        <span><%= @task.notes %></span>
-    <ul>
-        <li>task</li>
-        <li>task</li>
-        <li>task</li>
-    </ul>
+<div id="task_show_container">
+    <div class="data_container">
+    <h4><%= @task.due.strftime("%B %d, %Y") %></h4>
+    </div>
+
+    <div class="data_container" id="notes_container">
+    <h4> Notes: </h4>
+    <p><%= @task.notes %></p>
+    </div>
 </div>
 
-<%= link_to @category, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@category.name}?" }, :id => "delete_category_link" do %>
+<%= link_to @task, data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{@task.name}?" }, :id => "delete_category_link" do %>
     <i class="fa-regular fa-trash-can"></i>
 <% end %>
 

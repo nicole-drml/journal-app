@@ -11,7 +11,6 @@ class TasksController < ApplicationController
     end
     
     def new
-        @category = Category.find(params[:category_id]) 
         @task = Task.new
     end
 
@@ -33,8 +32,8 @@ class TasksController < ApplicationController
 
     def update
         respond_to do |format|
-            if @task.update(task_params)
-              format.html { redirect_to task_url(@task), notice: "Task was successfully updated." }
+            if @category.task.update(task_params)
+              format.html { redirect_to category_url(@category, @task), notice: "Task was successfully updated." }
             else
               format.html { render :edit, status: :unprocessable_entity }
             end
@@ -45,7 +44,7 @@ class TasksController < ApplicationController
         @task.destroy
 
         respond_to do |format|
-          format.html { redirect_to tasks_url, notice: "Task was successfully destroyed." }
+          format.html { redirect_to category_path(@category), notice: "Task was successfully destroyed." }
         end
     end
     

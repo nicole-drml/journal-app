@@ -1,19 +1,19 @@
 <%= form_with(model: @task) do |form| %>
-    <div>
+    <div class="data_container">
     <%= form.label :name %>
     <%= form.text_field :name, placeholder: "task", autofocus: "on" %>
     </div>
 
-    <div>
+    <div class="data_container">
     <%= form.label :due %>
     <%= form.datetime_field :due %>
     </div>
 
-    <div>
+    <div class="data_container" id="notes_container">
     <%= form.label :notes %>
     <%= form.text_area :notes, placeholder: "notes" %>
     </div>
-
+    </div>
     
     <div id="submit_button" >
         <%= form.submit%>

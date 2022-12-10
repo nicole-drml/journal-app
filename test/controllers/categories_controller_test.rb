@@ -17,10 +17,10 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create category" do
     assert_difference("Category.count") do
-      post categories_path, params: { category: "New one" }
+      post categories_path, params: { name: "New one" }
     end
 
-    assert_redirected_to category_path(Category.last)
+    assert_redirected_to category_path(@category)
   end
 
   test "should show category" do

@@ -1,0 +1,32 @@
+#task_show_container {
+    width: 40vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    overflow-y: scroll;
+    border-radius: 15px;
+    border: 1px solid black;
+
+    &::-webkit-scrollbar {
+        padding-top: 10px;
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #462150;
+        border-radius: 20px;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin: 10px 0 10px;
+      }
+
+    p {
+        white-space: pre-wrap;
+        
+    }
+}

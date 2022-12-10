@@ -107,22 +107,21 @@
     }
   }
 
-  #category_card_name {
+  #task_card_name {
     display: inline-flex;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 8px 30px;
+    position: fixed;
+    padding: 8px 25px;
     font-size: 1em;
+    background-color: white;
+    width: 39.75vw;
+    border-radius: 12px;
+    margin: 0 2px 0 1px;
 
     #new_task_header {
-      margin-left: auto;
-      width: 30%;
-      text-align: center;
       color: rgba(23, 23, 23, 0.5);
       transition: 300ms;
     }
     .fa-solid {
-      margin-right: auto;
       font-size: 0.7em;
       color: rgba(23, 23, 23, 0.5);
       transition: 300ms;
@@ -167,6 +166,10 @@
   }
 
   &::-webkit-scrollbar-track {
-    margin: 10px 0 10px;
+    margin: 40px 0 10px;
+  }
+
+  #tasks_categories_show_container {
+    margin-top: 40px;
   }
 }

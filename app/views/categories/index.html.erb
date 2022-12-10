@@ -8,7 +8,7 @@
         <i class="fa-solid fa-plus"></i>
     <% end %>
 
-    <% @categories.order('updated_at DESC').each do |category| %>
+    <% @categories.sort.reverse.each do |category| %>
         <div id="each_category_container">
             <div id="category_card_name">
                 <%= link_to category do %>
@@ -17,7 +17,7 @@
             </div>
             <% if category.tasks %>
                 <div id="list_container">
-                    <% category.tasks.each do |task| %>
+                    <% category.tasks[0, 5].each do |task| %>
                         <div id="task_in_card" class="list_in_card" >
                             <%= link_to task_path(category, task) do %>
                                 <%= task.name.downcase %>

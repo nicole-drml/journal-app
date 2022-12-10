@@ -1,0 +1,16 @@
+form {
+
+  .data_container {
+    width: 250px;
+  }
+
+  #notes_container {
+    textarea {
+      font-size: 1em;
+      width: 250px;
+      height: 100px;
+      padding: 5px;
+      white-space: pre-wrap;
+    }
+  }
+}

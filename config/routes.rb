@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get '/categories/:category_id/tasks/new' => 'tasks#new', as: 'new_task'
   get '/categories/:category_id/tasks/:id/edit' => 'tasks#edit', as: 'edit_task'
   get '/categories/:category_id/tasks/:id' => 'tasks#show', as: 'task'
-  patch '/categories/:category_id/tasks/:id' => 'tasks#update', as: 'update_task'
+  patch '/categories/:category_id/tasks/:id' => 'tasks#update'
   put '/categories/:category_id/tasks/:id' => 'task#update'
   delete '/categories/:category_id/tasks/:id' => 'task#destroy', as: 'delete_task'
 
