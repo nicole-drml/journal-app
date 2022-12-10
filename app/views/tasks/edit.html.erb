@@ -10,20 +10,24 @@
 <%= form_with(url: task_path(@category, @task), method: :patch) do |form| %>
     <div class="data_container">
     <%= form.label :name %>
-    <%= form.text_field :name, placeholder: "task", autofocus: "on" %>
+    <%= form.text_field :name, autofocus: "on", value: @task.name %>
     </div>
 
     <div class="data_container">
     <%= form.label :due %>
-    <%= form.datetime_field :due %>
+    <%= form.datetime_field :due, value: @task.due %>
     </div>
 
     <div class="data_container" id="notes_container">
     <%= form.label :notes %>
-    <%= form.text_area :notes, placeholder: "notes" %>
+    <%= form.text_area :notes, value: @task.notes %>
     </div>
     </div>
     
+    <% if @task.id %>
+    <span> hello </span>
+    <% end %>
+
     <div id="submit_button" >
         <%= form.submit%>
     </div>

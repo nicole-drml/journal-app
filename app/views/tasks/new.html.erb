@@ -9,7 +9,7 @@
 <%= form_with(model: @task) do |form| %>
     <div class="data_container">
     <%= form.label :name %>
-    <%= form.text_field :name, placeholder: "task", autofocus: "on" %>
+    <%= form.text_field :name, placeholder: "name", autofocus: "on", value: @task.name %>
     </div>
 
     <div class="data_container">
@@ -36,6 +36,4 @@
             </ul>
         </div>
     <% end %>
-
-   
 <% end %>

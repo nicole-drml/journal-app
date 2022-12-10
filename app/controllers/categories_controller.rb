@@ -31,6 +31,7 @@ class CategoriesController < ApplicationController
   end
 
   def update
+  
     respond_to do |format|
       if @category.update(category_params)
         format.html { redirect_to category_url(@category), notice: "Category was successfully updated." }
