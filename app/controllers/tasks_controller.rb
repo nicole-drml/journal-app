@@ -31,8 +31,9 @@ class TasksController < ApplicationController
 
 
     def update
+        binding.pry
         respond_to do |format|
-            if @category.task.update(task_params)
+            if @task.update(task_params)
               format.html { redirect_to category_url(@category, @task), notice: "Task was successfully updated." }
             else
               format.html { render :edit, status: :unprocessable_entity }
