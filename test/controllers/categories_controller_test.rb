@@ -4,6 +4,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
     @category = categories(:one)
+    #simulate login
   end
 
   test "should get index" do

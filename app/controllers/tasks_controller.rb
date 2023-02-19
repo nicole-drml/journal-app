@@ -31,7 +31,6 @@ class TasksController < ApplicationController
 
 
     def update
-        binding.pry
         respond_to do |format|
             if @task.update(task_params)
               format.html { redirect_to category_url(@category, @task), notice: "Task was successfully updated." }
